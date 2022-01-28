@@ -1,4 +1,4 @@
-const mergeSortedArrays = (left, right) => {
+export const mergeSortedArrays = (left, right) => {
     let result = [];
 
     while (left.length && right.length) {
