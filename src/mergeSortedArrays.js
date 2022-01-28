@@ -1,11 +1,12 @@
-const mergeSortedArrays = (tabOne, tabTwo) => {
+const mergeSortedArrays = (left, right) => {
     let result = [];
-    while (tabOne.length && tabTwo.length) {
-        if (tabOne[0] < tabTwo[0]) result.push(tabOne.shift());
-        else if (tabOne[0] > tabTwo[0]) result.push(tabTwo.shift());
-        else return [];
+
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) result.push(left.shift());
+        else result.push(right.shift());
     }
-    return result;
+
+    return [ ...result, ...left, ...right ];
 };
 
-module.exports = mergeSortedArrays();
+module.exports = mergeSortedArrays;
