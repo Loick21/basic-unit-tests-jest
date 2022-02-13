@@ -5,3 +5,5 @@ const computeAge = (birthday, currentDate) => {
         return (currentDate.getFullYear() - birthday.getFullYear());
     return currentDate.getFullYear() - birthday.getFullYear() - 1;
 }
+
+module.exports = computeAge;
