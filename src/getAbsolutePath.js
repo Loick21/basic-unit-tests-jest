@@ -1,5 +1,7 @@
 const getAbsolutePath = (tree, id) => {
-    if (!tree.has(id)) return "null";
+    if(checkTree(tree)) throw new Error("invalid tree");
+    if(checkId(id)) throw new Error("id should not be null or undefined");
+    if (!checkTreeId(tree,id)) throw new Error(`${id} not in tree`);
     let result = [];
     let element = tree.get(id);
     result = [...result, element.id];
@@ -9,6 +11,17 @@ const getAbsolutePath = (tree, id) => {
         element = parent;
     }
     return result;
+};
+
+const checkTree = (tree) => {
+    return tree === null || tree === undefined;
+};
+
+const checkId = (id) => {
+    return id === null || id === undefined;
+}
+const checkTreeId = (tree,id) => {
+    return tree.has(id);
 };
 
 module.exports = getAbsolutePath;
